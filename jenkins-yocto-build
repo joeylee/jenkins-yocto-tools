@@ -14,7 +14,9 @@
 #-------------------------------------------------------------------------------
 # Constants
 #-------------------------------------------------------------------------------
-sstate_dir="sstate-mirror:/bonus/scratch/sstate-mirror"
+if [ -z ${sstate_dir} ]; then
+	sstate_dir="sstate-mirror:/export/home2/jenkins/workspace/sstate-mirror"
+fi
 
 lockfile=$(mktemp $WORKSPACE/lock-XXXX)
 echo $$ > $lockfile
